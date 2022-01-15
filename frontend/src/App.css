@@ -31,3 +31,9 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+body {
+  background: #121212;
+  font-family: 'Nunito', sans-serif;
+  color: #fff;
+}
