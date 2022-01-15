@@ -37,3 +37,9 @@ body {
   font-family: 'Nunito', sans-serif;
   color: #fff;
 }
+
+.container {
+  width: 1200px;
+  max-width: 90%;
+  margin: 0 auto;
+}
