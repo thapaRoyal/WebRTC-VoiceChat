@@ -26,3 +26,10 @@
   line-height: 1.6;
   color: #c4c5c5;
 }
+
+.cardWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6rem;
+}
