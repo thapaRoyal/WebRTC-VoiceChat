@@ -1,11 +1,13 @@
 import React from 'react';
 import styles from './Home.module.css';
 import { Link } from 'react-router-dom';
+import Card from '../../components/shared/Card/Card';
 
 const Home = () => {
   return (
     <div className={styles.cardWrapper}>
-      <div className={styles.card}>
+      <Card></Card>
+      {/* <div className={styles.card}>
         <div className={styles.headingWrapper}>
           <img src="/images/logo.png" alt="logo" />
           <h1 className={styles.heading}>Welcome to Codershouse</h1>
@@ -25,7 +27,7 @@ const Home = () => {
           <span>Have an invite text?</span>
           <Link to="/login">Sign in</Link>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
