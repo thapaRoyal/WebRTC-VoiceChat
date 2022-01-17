@@ -7,7 +7,7 @@ const Home = () => {
     <div className={styles.card}>
       <div className={styles.headingWrapper}>
         <img src="/images/logo.png" alt="logo" />
-        <h1>Welcome to Codershouse</h1>
+        <h1 className={styles.heading}>Welcome to Codershouse</h1>
       </div>
       <p>
         We’re working hard to get Codershouse ready for everyone! While we wrap
