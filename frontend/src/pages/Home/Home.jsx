@@ -6,12 +6,7 @@ import Card from '../../components/shared/Card/Card';
 const Home = () => {
   return (
     <div className={styles.cardWrapper}>
-      <Card title="Welcome to Codershouse!" icon="logo"></Card>
-      {/* <div className={styles.card}>
-        <div className={styles.headingWrapper}>
-          <img src="/images/logo.png" alt="logo" />
-          <h1 className={styles.heading}>Welcome to Codershouse</h1>
-        </div>
+      <Card title="Welcome to Codershouse!" icon="logo">
         <p className={styles.text}>
           We’re working hard to get Codershouse ready for everyone! While we
           wrap up the finishing youches, we’re adding people gradually to make
@@ -27,7 +22,7 @@ const Home = () => {
           <span>Have an invite text?</span>
           <Link to="/login">Sign in</Link>
         </div>
-      </div> */}
+      </Card>
     </div>
   );
 };
