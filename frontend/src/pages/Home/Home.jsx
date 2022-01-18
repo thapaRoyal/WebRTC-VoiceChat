@@ -6,7 +6,7 @@ import Card from '../../components/shared/Card/Card';
 const Home = () => {
   return (
     <div className={styles.cardWrapper}>
-      <Card></Card>
+      <Card title="Welcome to Codershouse!" icon="logo"></Card>
       {/* <div className={styles.card}>
         <div className={styles.headingWrapper}>
           <img src="/images/logo.png" alt="logo" />
