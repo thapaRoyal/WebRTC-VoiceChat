@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Home.module.css';
 import { Link } from 'react-router-dom';
 import Card from '../../components/shared/Card/Card';
+import Button from '../../components/shared/Button/Button';
 
 const Home = () => {
   return (
@@ -13,10 +14,7 @@ const Home = () => {
           sure nothing breaks :)
         </p>
         <div>
-          <button>
-            <span>Get your username</span>
-            <img src="/images/arrow_forward.png" alt="arrow" />
-          </button>
+          <Button text="Get your username" icon="arrow_forward" />
         </div>
         <div>
           <span>Have an invite text?</span>
