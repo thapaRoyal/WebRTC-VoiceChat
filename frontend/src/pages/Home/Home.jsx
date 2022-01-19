@@ -5,6 +5,12 @@ import Card from '../../components/shared/Card/Card';
 import Button from '../../components/shared/Button/Button';
 
 const Home = () => {
+  const signInLinkStyle = {
+    color: '#0077ff',
+    fontWeight: 'bold',
+    textDecoration: 'none',
+    marginLeft: '10px',
+  };
   return (
     <div className={styles.cardWrapper}>
       <Card title="Welcome to Codershouse!" icon="logo">
@@ -16,9 +22,11 @@ const Home = () => {
         <div>
           <Button text="Get your username" icon="arrow_forward" />
         </div>
-        <div>
-          <span>Have an invite text?</span>
-          <Link to="/login">Sign in</Link>
+        <div className={styles.signinWrapper}>
+          <span className={styles.hasInvite}>Have an invite text?</span>
+          <Link style={signInLinkStyle} to="/login">
+            Sign in
+          </Link>
         </div>
       </Card>
     </div>
