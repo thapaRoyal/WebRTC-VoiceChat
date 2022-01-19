@@ -11,6 +11,10 @@ const Home = () => {
     textDecoration: 'none',
     marginLeft: '10px',
   };
+
+  function startRegister() {
+    console.log('Button Clicked!');
+  }
   return (
     <div className={styles.cardWrapper}>
       <Card title="Welcome to Codershouse!" icon="logo">
@@ -20,7 +24,11 @@ const Home = () => {
           sure nothing breaks :)
         </p>
         <div>
-          <Button text="Get your username" icon="arrow_forward" />
+          <Button
+            onClick={startRegister}
+            text="Get your username"
+            icon="arrow_forward"
+          />
         </div>
         <div className={styles.signinWrapper}>
           <span className={styles.hasInvite}>Have an invite text?</span>
