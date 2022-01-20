@@ -10,6 +10,9 @@ function App() {
       <Routes>
         <Route path="/" exact element={<Home />} />
       </Routes>
+      <Routes>
+        <Route path="/register" exact element={<Register />} />
+      </Routes>
     </BrowserRouter>
   );
 }
