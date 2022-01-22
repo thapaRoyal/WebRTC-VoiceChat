@@ -1,10 +1,13 @@
+// Import
 import React from 'react';
 import styles from './Home.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import Card from '../../components/shared/Card/Card';
 import Button from '../../components/shared/Button/Button';
 
+// Home Component
 const Home = () => {
+  // SignInLink style
   const signInLinkStyle = {
     color: '#0077ff',
     fontWeight: 'bold',
@@ -12,11 +15,13 @@ const Home = () => {
     marginLeft: '10px',
   };
 
+  // Navigation or routing
   const navigate = useNavigate();
   function startRegister() {
     navigate('/register');
   }
   return (
+    // HomePage
     <div className={styles.cardWrapper}>
       <Card title="Welcome to Codershouse!" icon="logo">
         <p className={styles.text}>
@@ -42,4 +47,5 @@ const Home = () => {
   );
 };
 
+// Export
 export default Home;

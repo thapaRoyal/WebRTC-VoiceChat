@@ -1,6 +1,8 @@
+// Import
 import React from 'react';
 import styles from './Card.module.css';
 
+// Card Component
 const Card = ({ title, icon, children }) => {
   return (
     <div className={styles.card}>
@@ -13,4 +15,5 @@ const Card = ({ title, icon, children }) => {
   );
 };
 
+// Export
 export default Card;

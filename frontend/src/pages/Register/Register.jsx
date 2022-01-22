@@ -1,3 +1,4 @@
+// Imports
 import React from 'react';
 import styles from './Register.module.css';
 
@@ -10,8 +11,10 @@ const steps = {
   5: StepUsername,
 };
 
+// Register Component
 const Register = () => {
   return <div>This is register page</div>;
 };
 
+// Export
 export default Register;
