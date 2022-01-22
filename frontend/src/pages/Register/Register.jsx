@@ -1,5 +1,10 @@
 // Imports
 import React from 'react';
+import StepAvatar from '../Steps/StepAvatar/StepAvatar';
+import StepName from '../Steps/StepName/StepName';
+import StepOtp from '../Steps/StepOtp/StepOtp';
+import StepPhoneEmail from '../Steps/StepPhoneEmail/StepPhoneEmail';
+import StepUsername from '../Steps/StepUsername/StepUsername';
 import styles from './Register.module.css';
 
 // Registration steps
