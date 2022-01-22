@@ -17,6 +17,9 @@ function App() {
       <Routes>
         <Route path="/register" exact element={<Register />} />
       </Routes>
+      <Routes>
+        <Route path="/login" exact element={<Login />} />
+      </Routes>
     </BrowserRouter>
   );
 }
