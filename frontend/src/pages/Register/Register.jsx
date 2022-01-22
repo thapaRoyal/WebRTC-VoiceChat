@@ -21,6 +21,7 @@ const Register = () => {
   // local state
   const [step, setStep] = useState(1);
 
+  // storing steps in a variable
   const Step = steps[step];
 
   // onNext function

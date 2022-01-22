@@ -7,6 +7,7 @@ const StepPhoneEmail = ({ onNext }) => {
   return (
     <>
       <div>Phone or Email Component</div>
+      {/* onNext button click */}
       <button onClick={onNext}>Next</button>
     </>
   );

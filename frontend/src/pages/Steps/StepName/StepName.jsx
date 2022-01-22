@@ -3,8 +3,13 @@ import React from 'react';
 import styles from './StepName.module.css';
 
 // StepName Component
-const StepName = () => {
-  return <div>StepName</div>;
+const StepName = ({ onNext }) => {
+  return (
+    <>
+      <div>StepName</div>
+      <button onClick={onNext}>Next</button>
+    </>
+  );
 };
 
 //  Export

@@ -3,8 +3,13 @@ import React from 'react';
 import styles from './StepAvatar.module.css';
 
 // StepAvatar component
-const StepAvatar = () => {
-  return <div>StepAvatar</div>;
+const StepAvatar = ({ onNext }) => {
+  return (
+    <>
+      <div>StepAvatar</div>
+      <button onClick={onNext}>Next</button>
+    </>
+  );
 };
 // Export
 export default StepAvatar;
