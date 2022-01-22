@@ -22,9 +22,15 @@ const Register = () => {
   const [step, setStep] = useState(1);
 
   const Step = steps[step];
+
+  // onNext function
+  function onNext() {
+    setStep(step + 1);
+  }
+
   return (
     <div>
-      <Step />
+      <Step onNext={onNext} />
     </div>
   );
 };
