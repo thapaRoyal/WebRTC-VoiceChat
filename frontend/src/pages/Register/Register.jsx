@@ -1,5 +1,5 @@
 // Imports
-import React from 'react';
+import React, { useState } from 'react';
 import StepAvatar from '../Steps/StepAvatar/StepAvatar';
 import StepName from '../Steps/StepName/StepName';
 import StepOtp from '../Steps/StepOtp/StepOtp';
@@ -18,7 +18,15 @@ const steps = {
 
 // Register Component
 const Register = () => {
-  return <div>This is register page</div>;
+  // local state
+  const [step, setStep] = useState(1);
+
+  const Step = steps[step];
+  return (
+    <div>
+      <Step />
+    </div>
+  );
 };
 
 // Export
