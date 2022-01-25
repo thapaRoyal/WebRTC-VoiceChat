@@ -1,11 +1,14 @@
 // Imports
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Navigation from './components/shared/Navigation/Navigation';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import Authenticate from './pages/Authenticate/Authenticate';
+import { Children } from 'react';
+
+const isAuth = true;
 
 // App Component
 function App() {
@@ -13,12 +16,15 @@ function App() {
     // Routing and Navigation
     <BrowserRouter>
       <Navigation />
-      <Routes>
-        <Route path="/" exact element={<Home />} />
-      </Routes>
-      <Routes>
-        <GuestRoute path="/authenticate" exact element={<Authenticate />} />
-      </Routes>
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <GuestRoute path="/authenticate">
+          <Authenticate />
+        </GuestRoute>
+      </Switch>
+
       {/* <Routes>
         <Route path="/register" exact element={<Register />} />
       </Routes>
@@ -28,6 +34,28 @@ function App() {
     </BrowserRouter>
   );
 }
+// rest will receive props from above routes
+// guest routes --> if the user is logged in they
+//  will be redirected to rooms page
+const GuestRoute = ({ children, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={({ location }) => {
+        return isAuth ? (
+          <Redirect
+            to={{
+              pathname: '/rooms',
+              state: { from: location },
+            }}
+          />
+        ) : (
+          children
+        );
+      }}
+    ></Route>
+  );
+};
 
 // Export
 export default App;

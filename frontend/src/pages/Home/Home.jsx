@@ -1,7 +1,7 @@
 // Import
 import React from 'react';
 import styles from './Home.module.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Card from '../../components/shared/Card/Card';
 import Button from '../../components/shared/Button/Button';
 
@@ -16,10 +16,12 @@ const Home = () => {
   };
 
   // Navigation or routing
-  const navigate = useNavigate();
+  const history = useHistory();
+  // start register function
   function startRegister() {
-    navigate('/register');
+    history.push('/register');
   }
+
   return (
     // HomePage
     <div className={styles.cardWrapper}>
