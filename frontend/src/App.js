@@ -17,7 +17,7 @@ function App() {
         <Route path="/" exact element={<Home />} />
       </Routes>
       <Routes>
-        <Route path="/authenticate" exact element={<Authenticate />} />
+        <GuestRoute path="/authenticate" exact element={<Authenticate />} />
       </Routes>
       {/* <Routes>
         <Route path="/register" exact element={<Register />} />
