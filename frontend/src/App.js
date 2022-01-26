@@ -8,7 +8,7 @@ import Login from './pages/Login/Login';
 import Authenticate from './pages/Authenticate/Authenticate';
 import { Children } from 'react';
 
-const isAuth = true;
+const isAuth = false;
 
 // App Component
 function App() {
