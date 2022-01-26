@@ -1,16 +1,25 @@
 // Import
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './StepPhoneEmail.module.css';
+
+const PhonEmailMap = {
+  phone: Phone,
+  email: Email,
+};
 
 // StepPhoneEmail Component
 const StepPhoneEmail = ({ onNext }) => {
-  return (
-    <>
-      <div>Phone or Email Component</div>
-      {/* onNext button click */}
-      <button onClick={onNext}>Next</button>
-    </>
-  );
+  // local state
+  const [type, setType] = useState('phone');
+
+  // storing steps in a variable
+  const Component = PhonEmailMap[type];
+
+  // onNext function
+  function onNext() {
+    setType(type + 1);
+  }
+  return <Component onNext={onNext} />;
 };
 
 // Export
