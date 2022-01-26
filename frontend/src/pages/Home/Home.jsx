@@ -19,7 +19,7 @@ const Home = () => {
   const history = useHistory();
   // start register function
   function startRegister() {
-    history.push('/register');
+    history.push('/authenticate');
   }
 
   return (
