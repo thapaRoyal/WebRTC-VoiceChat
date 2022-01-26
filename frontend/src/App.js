@@ -29,6 +29,9 @@ function App() {
         <SemiProtectedRoute path="/activate">
           <Activate />
         </SemiProtectedRoute>
+        <ProtectedRoute path="/rooms">
+          <Rooms />
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );
@@ -78,6 +81,34 @@ const SemiProtectedRoute = ({ children, ...rest }) => {
               state: { from: location },
             }}
           />
+        );
+      }}
+    ></Route>
+  );
+};
+
+// protected routes --> if user is logged in and activated redirect to rooms
+const ProtectedRoute = ({ children, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={({ location }) => {
+        return !isAuth ? (
+          <Redirect
+            to={{
+              pathname: '/',
+              state: { from: location },
+            }}
+          />
+        ) : isAuth && !user.activated ? (
+          <Redirect
+            to={{
+              pathname: '/activate',
+              state: { from: location },
+            }}
+          />
+        ) : (
+          children
         );
       }}
     ></Route>
