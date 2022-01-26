@@ -1,5 +1,7 @@
 // Import
 import React, { useState } from 'react';
+import Email from './Email/Email';
+import Phone from './Phone/Phone';
 import styles from './StepPhoneEmail.module.css';
 
 const PhonEmailMap = {
