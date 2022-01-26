@@ -17,9 +17,9 @@ function App() {
     <BrowserRouter>
       <Navigation />
       <Switch>
-        <Route path="/" exact>
+        <GuestRoute path="/" exact>
           <Home />
-        </Route>
+        </GuestRoute>
         <GuestRoute path="/authenticate">
           <Authenticate />
         </GuestRoute>
