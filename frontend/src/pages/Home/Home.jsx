@@ -34,15 +34,12 @@ const Home = () => {
         <div>
           <Button
             onClick={startRegister}
-            text="Get your username"
+            text="Let's go"
             icon="arrow_forward"
           />
         </div>
         <div className={styles.signinWrapper}>
           <span className={styles.hasInvite}>Have an invite text?</span>
-          <Link style={signInLinkStyle} to="/login">
-            Sign in
-          </Link>
         </div>
       </Card>
     </div>
