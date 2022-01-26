@@ -6,6 +6,7 @@ import Navigation from './components/shared/Navigation/Navigation';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import Authenticate from './pages/Authenticate/Authenticate';
+import Activate from './pages/activate/Activate';
 
 const isAuth = false;
 
