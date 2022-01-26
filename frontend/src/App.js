@@ -6,9 +6,12 @@ import Navigation from './components/shared/Navigation/Navigation';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import Authenticate from './pages/Authenticate/Authenticate';
-import Activate from './pages/activate/Activate';
+import Activate from './pages/Activate/Activate';
 
-const isAuth = false;
+const isAuth = true;
+const user = {
+  activated: false,
+};
 
 // App Component
 function App() {
@@ -27,13 +30,6 @@ function App() {
           <Activate />
         </SemiProtectedRoute>
       </Switch>
-
-      {/* <Routes>
-        <Route path="/register" exact element={<Register />} />
-      </Routes>
-      <Routes>
-        <Route path="/login" exact element={<Login />} />
-      </Routes> */}
     </BrowserRouter>
   );
 }
@@ -54,6 +50,34 @@ const GuestRoute = ({ children, ...rest }) => {
           />
         ) : (
           children
+        );
+      }}
+    ></Route>
+  );
+};
+
+// semi protected routes --> if user is authenticated and activated redirecct to rooms
+const SemiProtectedRoute = ({ children, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={({ location }) => {
+        return !isAuth ? (
+          <Redirect
+            to={{
+              pathname: '/',
+              state: { from: location },
+            }}
+          />
+        ) : isAuth && !user.activated ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: '/rooms',
+              state: { from: location },
+            }}
+          />
         );
       }}
     ></Route>
