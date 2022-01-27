@@ -21,7 +21,13 @@ const StepPhoneEmail = ({ onNext }) => {
   function onNext() {
     setType(type + 1);
   }
-  return <Component onNext={onNext} />;
+  return (
+    <>
+      <button onClick={() => setType('phone')}>Phone</button>
+      <button onClick={() => setType('email')}>Email</button>
+      <Component onNext={onNext} />
+    </>
+  );
 };
 
 // Export
