@@ -23,6 +23,7 @@ const StepPhoneEmail = ({ onNext }) => {
   }
   return (
     <>
+      <div className={styles.cardWrapper}></div>
       <button onClick={() => setType('phone')}>Phone</button>
       <button onClick={() => setType('email')}>Email</button>
       <Component onNext={onNext} />
