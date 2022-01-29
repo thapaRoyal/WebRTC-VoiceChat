@@ -26,8 +26,12 @@ const StepPhoneEmail = ({ onNext }) => {
       <div className={styles.cardWrapper}>
         <div>
           <div className={styles.buttonWrap}>
-            <button onClick={() => setType('phone')}>Phone</button>
-            <button onClick={() => setType('email')}>Email</button>
+            <button onClick={() => setType('phone')}>
+              <img src="/images/phone-white.png" alt="phone" />
+            </button>
+            <button onClick={() => setType('email')}>
+              <img src="/images/email-white.png" alt="email" />
+            </button>
           </div>
 
           <Component onNext={onNext} />
