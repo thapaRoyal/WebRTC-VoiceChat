@@ -16,11 +16,6 @@ const StepPhoneEmail = ({ onNext }) => {
 
   // storing steps in a variable
   const Component = PhonEmailMap[type];
-
-  // onNext function
-  function onNext() {
-    setType(type + 1);
-  }
   return (
     <>
       <div className={styles.cardWrapper}>
