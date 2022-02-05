@@ -28,3 +28,7 @@
 .active {
   background: #0077ff;
 }
+
+.actionButtonWrap {
+  margin-top: 40px;
+}
