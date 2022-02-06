@@ -16,6 +16,10 @@ const Phone = () => {
         <div className={styles.actionButtonWrap}>
           <Button text="Next" icon="arrow_forward" />
         </div>
+        <p className={styles.bottomParagraph}>
+          By entering your number, you’re agreeing to our Terms of Service and
+          Privacy Policy. Thanks!
+        </p>
       </div>
     </Card>
   );
