@@ -11,7 +11,13 @@ const Email = () => {
     <Card title="Enter your email id" icon="email">
       <TextInput value={email} onChange={(e) => setEmail(e.target.value)} />
       <div>
-        <Button text="Next" icon="arrow_forward" />
+        <div className={styles.actionButtonWrap}>
+          <Button text="Next" icon="arrow_forward" />
+        </div>
+        <p className={styles.bottomParagraph}>
+          By entering your number, you’re agreeing to our Terms of Service and
+          Privacy Policy. Thanks!
+        </p>
       </div>
     </Card>
   );
