@@ -1,8 +1,5 @@
 .cardWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 6rem;
+  composes: cardWrapper from '../../../App.module.css';
 }
 
 .bottomParagraph {
