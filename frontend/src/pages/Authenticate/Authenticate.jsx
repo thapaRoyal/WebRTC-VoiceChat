@@ -12,7 +12,7 @@ const steps = {
 //Authenticate Component
 const Authenticate = () => {
   // local state
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
 
   // storing steps in a variable
   const Step = steps[step];
