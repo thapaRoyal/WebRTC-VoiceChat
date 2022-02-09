@@ -3,12 +3,8 @@
 }
 
 .bottomParagraph {
-  color: #c4c5c5;
-  width: 70%;
-  margin: 0 auto;
-  margin-top: 20px;
+  composes: bottomParagraph from '../StepPhoneEmail/StepPhoneEmail.module.css';
 }
-
 .actionButtonWrap {
   margin-top: 40px;
 }
