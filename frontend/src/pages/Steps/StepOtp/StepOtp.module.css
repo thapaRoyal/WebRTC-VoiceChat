@@ -6,5 +6,5 @@
   composes: bottomParagraph from '../StepPhoneEmail/StepPhoneEmail.module.css';
 }
 .actionButtonWrap {
-  margin-top: 40px;
+  composes: actionButtonWrap from '../StepPhoneEmail/StepPhoneEmail.module.css';
 }
