@@ -1,9 +1,11 @@
+// Imports
 import React, { useState } from 'react';
 import Button from '../../../../components/shared/Button/Button';
 import Card from '../../../../components/shared/Card/Card';
 import TextInput from '../../../../components/shared/TextInput/TextInput';
 import styles from '../StepPhoneEmail.module.css';
 
+// Email Component
 const Email = ({ onNext }) => {
   const { email, setEmail } = useState('');
 
