@@ -9,4 +9,4 @@ app.get('/', (req, res) => {
   res.send('hello from express');
 });
 
-app.listen(PORT, () => `Listening on port ${PORT}`);
+app.listen(PORT, () => console.log(`listening on port ${PORT}`));
