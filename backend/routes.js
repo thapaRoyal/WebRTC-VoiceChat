@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-router.post('/api/sendotp', (req, res) => {
+router.post('/api/send-otp', (req, res) => {
   // logic
   res.send('Hello from OTP route');
 });
