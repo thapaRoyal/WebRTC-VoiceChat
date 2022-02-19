@@ -1,3 +1,4 @@
+const otpService = require('../services/otp-service');
 class AuthController {
   sendOtp(req, res) {
     //Logic
@@ -6,7 +7,8 @@ class AuthController {
     if (!phone) {
       res.status(400).json({ message: 'Phone field is required' });
     }
-    res.send('Hello from OTP route');
+    const otp = otpService.generateOtp();
+    res.json({ otp: otp });
   }
 }
 
