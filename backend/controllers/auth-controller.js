@@ -1,4 +1,5 @@
 const otpService = require('../services/otp-service');
+const hashService = require('../services/hash-service');
 class AuthController {
   async sendOtp(req, res) {
     //Logic
@@ -10,6 +11,8 @@ class AuthController {
     const otp = await otpService.generateOtp();
 
     // hash
+    const hash = hashService.hashOtp();
+
     res.json({ otp: otp });
   }
 }
