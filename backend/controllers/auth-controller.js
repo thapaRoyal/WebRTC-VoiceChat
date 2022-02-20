@@ -11,6 +11,8 @@ class AuthController {
     const otp = await otpService.generateOtp();
 
     // hash
+    // ttl = time to live
+    const ttl = 1000 * 60 * 2; // 2 minutes
     const hash = hashService.hashOtp();
 
     res.json({ otp: otp });
