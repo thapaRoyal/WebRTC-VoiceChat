@@ -45,6 +45,10 @@ class AuthController {
     const data = `${phone}.${otp}.${expires}`;
 
     const isValid = otpService.verifyOtp(hashedOtp, data);
+    if (!isValid) {
+      res.status(400).json({ message: 'Invalid OTP' });
+    }
+    let user;
   }
 }
 
