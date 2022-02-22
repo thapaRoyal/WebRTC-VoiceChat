@@ -36,10 +36,10 @@ class AuthController {
     // Logic
     const { hash, otp, phone } = req.body;
     if (!otp || !hash || !phone) {
-      res.status(400).json({ message: 'Invalid request' });
+      res.status(400).json({ message: 'All fields are  required' });
     }
 
-    const { hashedOtp, expires } = hash.split('.');
+    const [hashedOtp, expires] = hash.split('.');
     if (Date.now() > +expires) {
       res.status(400).json({ message: 'OTP expired' });
     }
@@ -52,8 +52,6 @@ class AuthController {
     }
 
     let user;
-    let accessToken;
-    let refreshToken;
 
     try {
       user = await userService.findUser({ phone });
@@ -66,7 +64,17 @@ class AuthController {
     }
 
     //tokens
-    const { accessToken, refreshToken } = tokenService.generateTokens();
+    const { accessToken, refreshToken } = tokenService.generateTokens({
+      _id: user._id,
+      activated: false,
+    });
+
+    res.cookie('refreshToken', refreshToken, {
+      maxAge: 1000 * 60 * 60 * 24 * 30,
+      httpOnly: true,
+    });
+
+    res.json({ accessToken });
   }
 }
 
