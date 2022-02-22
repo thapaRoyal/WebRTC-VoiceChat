@@ -66,7 +66,7 @@ class AuthController {
     }
 
     //tokens
-    tokenService.generateTokens();
+    const { accessToken, refreshToken } = tokenService.generateTokens();
   }
 }
 
