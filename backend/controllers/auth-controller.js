@@ -1,6 +1,7 @@
 const otpService = require('../services/otp-service');
 const hashService = require('../services/hash-service');
 const userService = require('../services/user-service');
+const tokenService = require('../services/token-service');
 class AuthController {
   async sendOtp(req, res) {
     //Logic
@@ -31,7 +32,7 @@ class AuthController {
     }
   }
 
-  verifyOtp(req, res) {
+  async verifyOtp(req, res) {
     // Logic
     const { hash, otp, phone } = req.body;
     if (!otp || !hash || !phone) {
@@ -65,6 +66,7 @@ class AuthController {
     }
 
     //tokens
+    tokenService.generateTokens();
   }
 }
 

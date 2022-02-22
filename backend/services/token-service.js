@@ -1,6 +1,5 @@
 class TokenService {
-  generateAccessToken() {}
-  generateRefreshToken() {}
+  generateTokens() {}
 }
 
 module.exports = new TokenService();
