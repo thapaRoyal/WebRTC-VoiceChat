@@ -6,11 +6,11 @@ import styles from '../StepPhoneEmail.module.css';
 import { sendOtp } from '../../../../http';
 
 const Phone = ({ onNext }) => {
-  const { phoneNumber, setPhoneNumber } = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
 
   async function submit() {
     // Server request
-    const res = await sendOtp();
+    const res = await sendOtp({ phone: phoneNumber });
     console.log(res);
 
     // onNext();
