@@ -3,13 +3,17 @@ import Button from '../../../../components/shared/Button/Button';
 import Card from '../../../../components/shared/Card/Card';
 import TextInput from '../../../../components/shared/TextInput/TextInput';
 import styles from '../StepPhoneEmail.module.css';
+import { sendOtp } from '../../../../http';
 
 const Phone = ({ onNext }) => {
   const { phoneNumber, setPhoneNumber } = useState('');
 
-  function submit() {
+  async function submit() {
     // Server request
-    onNext();
+    const res = await sendOtp();
+    console.log(res);
+
+    // onNext();
   }
   return (
     <Card title="Enter your phone number" icon="phone">
