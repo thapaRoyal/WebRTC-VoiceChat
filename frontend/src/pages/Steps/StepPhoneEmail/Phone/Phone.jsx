@@ -6,6 +6,10 @@ import styles from '../StepPhoneEmail.module.css';
 
 const Phone = ({ onNext }) => {
   const { phoneNumber, setPhoneNumber } = useState('');
+
+  function submit() {
+    onNext();
+  }
   return (
     <Card title="Enter your phone number" icon="phone">
       <TextInput
@@ -14,7 +18,7 @@ const Phone = ({ onNext }) => {
       />
       <div>
         <div className={styles.actionButtonWrap}>
-          <Button text="Next" icon="arrow_forward" onClick={onNext} />
+          <Button text="Next" icon="arrow_forward" onClick={submit} />
         </div>
         <p className={styles.bottomParagraph}>
           By entering your number, you’re agreeing to our Terms of Service and
