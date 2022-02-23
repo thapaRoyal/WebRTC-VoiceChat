@@ -9,3 +9,6 @@ const api = axios.create({
 });
 
 // list of all endpoints
+export const sendOtp = (data) => api.post('/api/send-otp', data);
+
+export default api;
