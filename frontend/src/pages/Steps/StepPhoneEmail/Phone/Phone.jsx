@@ -8,6 +8,7 @@ const Phone = ({ onNext }) => {
   const { phoneNumber, setPhoneNumber } = useState('');
 
   function submit() {
+    // Server request
     onNext();
   }
   return (
