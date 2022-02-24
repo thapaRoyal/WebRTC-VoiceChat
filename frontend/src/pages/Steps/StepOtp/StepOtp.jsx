@@ -8,7 +8,9 @@ import styles from './StepOtp.module.css';
 // StepOtp Component
 const StepOtp = ({ onNext }) => {
   const [otp, setOtp] = useState('');
-  async function submit() {}
+  async function submit() {
+    // onNext()
+  }
   return (
     <>
       <div className={styles.cardWrapper}>
