@@ -8,14 +8,14 @@ import styles from './StepOtp.module.css';
 // StepOtp Component
 const StepOtp = ({ onNext }) => {
   const [otp, setOtp] = useState('');
-  function next() {}
+  async function submit() {}
   return (
     <>
       <div className={styles.cardWrapper}>
         <Card title="Enter the code we just texted you" icon="lock">
-          <TextInput value={otp} onChange={(e) => StepOtp(e.target.value)} />
+          <TextInput value={otp} onChange={(e) => setOtp(e.target.value)} />
           <div className={styles.actionButtonWrap}>
-            <Button onClick={next} text="Next" icon="arrow_forward" />
+            <Button onClick={submit} text="Next" icon="arrow_forward" />
           </div>
           <p className={styles.bottomParagraph}>
             By entering your number, you're agreeing to our Terms of Service and
