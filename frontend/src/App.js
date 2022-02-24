@@ -7,10 +7,12 @@ import Authenticate from './pages/Authenticate/Authenticate';
 import Activate from './pages/Activate/Activate';
 import Rooms from './pages/Rooms/Rooms';
 
-const isAuth = false;
-const user = {
-  activated: false,
-};
+import { useSelector } from 'react-redux';
+
+// const isAuth = false;
+// const user = {
+//   activated: false,
+// };
 
 // App Component
 function App() {
@@ -39,6 +41,7 @@ function App() {
 // guest routes --> if the user is logged in they
 //  will be redirected to rooms page
 const GuestRoute = ({ children, ...rest }) => {
+  const { isAuth } = useSelector((state) => state.auth);
   return (
     <Route
       {...rest}
@@ -60,6 +63,8 @@ const GuestRoute = ({ children, ...rest }) => {
 
 // semi protected routes --> if user is authenticated and activated redirecct to rooms
 const SemiProtectedRoute = ({ children, ...rest }) => {
+  const { user, isAuth } = useSelector((state) => state.auth);
+
   return (
     <Route
       {...rest}
@@ -88,6 +93,8 @@ const SemiProtectedRoute = ({ children, ...rest }) => {
 
 // protected routes --> if user is logged in and activated redirect to rooms
 const ProtectedRoute = ({ children, ...rest }) => {
+  const { user, isAuth } = useSelector((state) => state.auth);
+
   return (
     <Route
       {...rest}
