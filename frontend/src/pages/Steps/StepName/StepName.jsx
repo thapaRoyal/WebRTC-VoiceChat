@@ -4,19 +4,27 @@ import Button from '../../../components/shared/Button/Button';
 import Card from '../../../components/shared/Card/Card';
 import TextInput from '../../../components/shared/TextInput/TextInput';
 import styles from './StepName.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { setName } from '../../../store/activateSlice';
 
 // StepName Component
 const StepName = ({ onNext }) => {
-  const [name, setName] = useState('');
+  const { name } = useSelector((state) => state.activate);
+  const dispatch = useDispatch();
+  const [fullName, setFullname] = useState('');
   function nextStep() {
-    if (!name) {
+    if (!fullName) {
       return;
     }
+    dispatch();
   }
   return (
     <>
       <Card title="What's your full name ?" icon="smile">
-        <TextInput value={name} onChange={(e) => setName(e.target.value)} />
+        <TextInput
+          value={fullName}
+          onChange={(e) => setFullname(e.target.value)}
+        />
         <p className={styles.bottomParagraph}>
           People use real names at codershouse :)
         </p>
