@@ -11,12 +11,13 @@ import { setName } from '../../../store/activateSlice';
 const StepName = ({ onNext }) => {
   const { name } = useSelector((state) => state.activate);
   const dispatch = useDispatch();
-  const [fullName, setFullname] = useState('');
+  const [fullName, setFullname] = useState(name);
   function nextStep() {
     if (!fullName) {
       return;
     }
-    dispatch();
+    dispatch(setName(fullName));
+    onNext();
   }
   return (
     <>
@@ -25,7 +26,7 @@ const StepName = ({ onNext }) => {
           value={fullName}
           onChange={(e) => setFullname(e.target.value)}
         />
-        <p className={styles.bottomParagraph}>
+        <p className={styles.paragraph}>
           People use real names at codershouse :)
         </p>
         <div className={styles.actionButtonWrap}>

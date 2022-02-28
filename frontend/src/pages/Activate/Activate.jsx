@@ -15,7 +15,7 @@ const Activate = () => {
     setStep(step + 1);
   }
   return (
-    <div>
+    <div className="cardWrapper">
       <Step onNext={onNext}></Step>
     </div>
   );

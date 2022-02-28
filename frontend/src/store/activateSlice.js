@@ -18,6 +18,6 @@ export const activateSlice = createSlice({
   },
 });
 
-export const { setAuth, setOtp } = activateSlice.actions;
+export const { setName, setAvatar } = activateSlice.actions;
 
 export default activateSlice.reducer;
