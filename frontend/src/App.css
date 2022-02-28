@@ -1,6 +1,6 @@
 html {
-  font-size: 16px;
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 body,
@@ -39,4 +39,11 @@ body {
   width: 1200px;
   max-width: 90%;
   margin: 0 auto;
+}
+
+.cardWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 140px);
 }
