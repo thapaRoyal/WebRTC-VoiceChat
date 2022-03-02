@@ -13,7 +13,7 @@ const StepAvatar = ({ onNext }) => {
   return (
     <>
       <Card title="Okay, Logan T!" icon="monkey">
-        <p>How,s this photo?</p>
+        <p className={styles.subHeading}>How,s this photo?</p>
         <div>
           <Button onClick={submit} text="Next" icon="arrow_forward" />
         </div>
