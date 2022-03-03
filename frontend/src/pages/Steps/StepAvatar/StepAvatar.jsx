@@ -18,7 +18,7 @@ const StepAvatar = ({ onNext }) => {
       <Card title={`Okay, ${name}!`} icon="monkey">
         <p className={styles.subHeading}>How's this photo?</p>
         <div className={styles.avatarWrapper}>
-          <img src={image} alt="Avatar" />
+          <img className={styles.avatarImage} src={image} alt="Avatar" />
         </div>
         <div>
           <Button onClick={submit} text="Next" icon="arrow_forward" />

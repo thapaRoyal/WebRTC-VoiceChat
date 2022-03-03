@@ -14,3 +14,9 @@
   justify-content: center;
   overflow: hidden;
 }
+
+.avatarImage {
+  height: 90%;
+  width: 90%;
+  object-fit: cover;
+}
