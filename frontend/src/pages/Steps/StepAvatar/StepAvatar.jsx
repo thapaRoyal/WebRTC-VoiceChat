@@ -21,6 +21,10 @@ const StepAvatar = ({ onNext }) => {
           <img className={styles.avatarImage} src={image} alt="Avatar" />
         </div>
         <div>
+          <input id="avatarInput" type="file" className={styles.avatarInput} />
+          <label htmlFor="avatarInput">Choose a different photo</label>
+        </div>
+        <div>
           <Button onClick={submit} text="Next" icon="arrow_forward" />
         </div>
       </Card>

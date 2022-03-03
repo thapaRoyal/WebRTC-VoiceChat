@@ -20,3 +20,7 @@
   width: 90%;
   object-fit: cover;
 }
+
+.avatarInput {
+  display: none;
+}
