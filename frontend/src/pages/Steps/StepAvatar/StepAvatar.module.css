@@ -24,3 +24,9 @@
 .avatarInput {
   display: none;
 }
+.avatarLabel {
+  color: #0077ff;
+  margin: 30px 0;
+  display: inline-block;
+  cursor: pointer;
+}
