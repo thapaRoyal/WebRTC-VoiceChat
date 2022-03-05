@@ -9,7 +9,11 @@ module.exports = async function (req, res, next) {
       throw new Error();
     }
     const userData = await tokenService.verifyAccessToken(accessToken);
-    console.log(userData);
+
+    if (!userData) {
+      throw new Error();
+    }
+    req.user = userData;
     next();
   } catch (err) {
     console.log(err);
