@@ -1,3 +1,5 @@
+const tokenService = require('../services/token-service');
+
 module.exports = async function (req, res, next) {
   try {
     //   get accessToken
@@ -6,7 +8,8 @@ module.exports = async function (req, res, next) {
     if (!accessToken) {
       throw new Error();
     }
-    console.log(accessToken);
+    const userData = await tokenService.verifyAccessToken(accessToken);
+    console.log(userData);
     next();
   } catch (err) {
     console.log(err);
