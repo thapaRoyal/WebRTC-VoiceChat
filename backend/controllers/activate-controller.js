@@ -1,5 +1,7 @@
 const Jimp = require('jimp');
 const path = require('path');
+const UserDto = require('../dtos/user-dto');
+const userService = require('../services/user-service');
 
 class ActivateController {
   async activate(req, res) {
@@ -25,7 +27,21 @@ class ActivateController {
     } catch (err) {
       res.status(500).json({ message: 'Could not process image ' });
     }
-    res.json({ message: 'OK!' });
+    const userId = req.user._id;
+    // update users
+    try {
+      const user = await userService.findUser({ _id: userId });
+      if (!user) {
+        res.status(404).json({ message: 'User not found' });
+      }
+      user.activated = true;
+      user.name = name;
+      user.avatar = `/storage/${imagePath}`;
+      user.save();
+      res.json({ user: new UserDto(user), auth: true });
+    } catch (err) {
+      res.status(500).json({ message: 'Something went wrong ' });
+    }
   }
 }
 
