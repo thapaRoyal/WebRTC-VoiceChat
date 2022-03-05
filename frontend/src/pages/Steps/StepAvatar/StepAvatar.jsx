@@ -5,11 +5,12 @@ import Card from '../../../components/shared/Card/Card';
 import Button from '../../../components/shared/Button/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { setAvatar } from '../../../store/activateSlice';
+import { activate } from '../../../http';
 
 // StepAvatar component
 const StepAvatar = ({ onNext }) => {
   const dispatch = useDispatch();
-  const { name } = useSelector((state) => state.activate);
+  const { name, avatar } = useSelector((state) => state.activate);
   const [image, setImage] = useState('/images/monkey-avatar.png');
   function captureImage(e) {
     const file = e.target.files[0];
@@ -20,9 +21,15 @@ const StepAvatar = ({ onNext }) => {
       setImage(reader.result);
       dispatch(setAvatar(reader.result));
     };
-    console.log(e);
   }
-  function submit() {}
+  async function submit() {
+    try {
+      const { data } = await activate({ name, avatar });
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <>
