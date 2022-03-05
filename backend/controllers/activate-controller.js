@@ -15,6 +15,8 @@ class ActivateController {
       'base64'
     );
 
+    const imagePath = `${Date.now()}-${Math.round(Math.random() * 1e9)}.png`;
+
     try {
       const jimpResp = await Jimp.read(buffer);
       jimpResp
