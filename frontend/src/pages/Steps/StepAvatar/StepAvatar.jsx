@@ -22,9 +22,7 @@ const StepAvatar = ({ onNext }) => {
     };
     console.log(e);
   }
-  function submit() {
-    //
-  }
+  function submit() {}
 
   return (
     <>
