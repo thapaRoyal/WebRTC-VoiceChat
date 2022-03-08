@@ -6,7 +6,7 @@ const refreshModel = require('../models/refresh-model');
 class TokenService {
   generateTokens(payload) {
     const accessToken = jwt.sign(payload, accessTokenSecret, {
-      expiresIn: '1h',
+      expiresIn: '1m', //1 minute
     });
 
     const refreshToken = jwt.sign(payload, refreshTokenSecret, {
