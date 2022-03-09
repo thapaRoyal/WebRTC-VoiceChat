@@ -15,6 +15,7 @@ const StepOtp = ({ onNext }) => {
   const dispatch = useDispatch();
   const { phone, hash } = useSelector((state) => state.auth.otp);
   async function submit() {
+    if (!otp || !phone || !hash) return;
     try {
       const { data } = await verifyOtp({ otp, phone, hash });
       console.log(data);
