@@ -8,6 +8,7 @@ import Activate from './pages/Activate/Activate';
 import Rooms from './pages/Rooms/Rooms';
 
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
 // const isAuth = false;
 // const user = {
@@ -16,7 +17,11 @@ import { useSelector } from 'react-redux';
 
 // App Component
 function App() {
-  return (
+  const [loading, setLoading] = useState(true);
+  // call refresh endpoint
+  return loading ? (
+    'Loading...'
+  ) : (
     // Routing and Navigation
     <BrowserRouter>
       <Navigation />
