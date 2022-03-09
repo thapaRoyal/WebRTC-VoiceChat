@@ -6,6 +6,7 @@ import Navigation from './components/shared/Navigation/Navigation';
 import Authenticate from './pages/Authenticate/Authenticate';
 import Activate from './pages/Activate/Activate';
 import Rooms from './pages/Rooms/Rooms';
+import Loader from './components/shared/Loader/Loader';
 
 import { useSelector } from 'react-redux';
 import { useLoadingWithRefresh } from './hooks/useLoadingWithRefresh';
@@ -15,7 +16,7 @@ function App() {
   // call refresh endpoint
   const { loading } = useLoadingWithRefresh();
   return loading ? (
-    'Loading...'
+    <Loader message="Loading, please wait!" />
   ) : (
     // Routing and Navigation
     <BrowserRouter>
