@@ -8,17 +8,12 @@ import Activate from './pages/Activate/Activate';
 import Rooms from './pages/Rooms/Rooms';
 
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
-
-// const isAuth = false;
-// const user = {
-//   activated: false,
-// };
+import { useLoadingWithRefresh } from './hooks/useLoadingWithRefresh';
 
 // App Component
 function App() {
-  const [loading, setLoading] = useState(true);
   // call refresh endpoint
+  const { loading } = useLoadingWithRefresh();
   return loading ? (
     'Loading...'
   ) : (
