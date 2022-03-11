@@ -4,3 +4,26 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.logoutButton {
+  background: none;
+  cursor: pointer;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+}
+
+img {
+  height: 40px;
+  width: 40px;
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #0077ff;
+  margin: 0 16px;
+  margin-right: 10px;
+}

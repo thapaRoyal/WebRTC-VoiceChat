@@ -43,11 +43,13 @@ const Navigation = () => {
         <span style={logoText}>Codershouse</span>
       </Link>
       <div className={styles.navRight}>
-        <h3>{user.name}</h3>
+        <h2>{user.name}</h2>
         <Link to="/">
-          <img src={user.avatar} width="40" height="40" alt="Avatar" />
+          <img className={styles.avatar} src={user.avatar} alt="Avatar" />
         </Link>
-        <button onClick={logoutUser}>Logout</button>
+        <button className={styles.logoutButton} onClick={logoutUser}>
+          <img src="/images/logout.png" alt="" />
+        </button>
       </div>
     </nav>
   );

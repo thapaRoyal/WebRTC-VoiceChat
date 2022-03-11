@@ -35,6 +35,11 @@ body {
   color: #fff;
 }
 
+button {
+  border: none;
+  outline: none;
+}
+
 .container {
   width: 1200px;
   max-width: 90%;
