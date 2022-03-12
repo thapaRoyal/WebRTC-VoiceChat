@@ -13,7 +13,12 @@ const Rooms = () => {
               <input type="text" className={styles.searchInput} />
             </div>
           </div>
-          <div className={styles.right}></div>
+          <div className={styles.right}>
+            <button className={styles.startRoomButton}>
+              <img src="/images/add-room-icon.png" alt="Add room" />
+              <span>Start a room</span>
+            </button>
+          </div>
         </div>
       </div>
     </>
