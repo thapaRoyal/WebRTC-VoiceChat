@@ -1,6 +1,60 @@
 import React from 'react';
 import styles from './Rooms.module.css';
 
+const rooms = [
+  {
+    id: 1,
+    topic: 'Which framework is best for Frontend?',
+    speakers: [
+      {
+        id: 1,
+        name: 'John Doe',
+        avatar: '/images/monkey-avatar.png',
+      },
+      {
+        id: 2,
+        name: 'Jane Doe',
+        avatar: '/images/monkey-avatar.png',
+      },
+    ],
+    totalPeople: 40,
+  },
+  {
+    id: 2,
+    topic: 'Which framework is best for Backend?',
+    speakers: [
+      {
+        id: 1,
+        name: 'John Doe 1',
+        avatar: '/images/monkey-avatar.png',
+      },
+      {
+        id: 2,
+        name: 'Jane Doe 1',
+        avatar: '/images/monkey-avatar.png',
+      },
+    ],
+    totalPeople: 48,
+  },
+  {
+    id: 3,
+    topic: 'Learning React?',
+    speakers: [
+      {
+        id: 1,
+        name: 'John Doe 2',
+        avatar: '/images/monkey-avatar.png',
+      },
+      {
+        id: 2,
+        name: 'Jane Doe 2',
+        avatar: '/images/monkey-avatar.png',
+      },
+    ],
+    totalPeople: 44,
+  },
+];
+
 const Rooms = () => {
   return (
     <>
@@ -20,6 +74,7 @@ const Rooms = () => {
             </button>
           </div>
         </div>
+        <div className={styles.roomList}></div>
       </div>
     </>
   );
