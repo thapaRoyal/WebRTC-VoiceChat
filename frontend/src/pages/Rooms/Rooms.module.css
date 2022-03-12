@@ -1,3 +1,9 @@
+.roomsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .left {
   display: flex;
   align-items: center;
@@ -16,6 +22,10 @@
   padding: 0 10px;
   min-width: 300px;
   border-radius: 20px;
+}
+.searchBox img {
+  height: 22px;
+  width: 22px;
 }
 
 .searchInput {
@@ -39,4 +49,27 @@
   width: 60%;
   height: 4px;
   background: #0077ff;
+}
+
+.startRoomButton {
+  display: flex;
+  align-items: center;
+  background: #20bd57;
+  padding: 5px 20px;
+  border-radius: 20px;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.startRoomButton img {
+  height: 22px;
+  width: 22px;
+}
+
+.startRoomButton span {
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.startRoomButton:hover {
+  background: #0f6632;
 }
