@@ -6,7 +6,7 @@ const RoomCard = ({ room }) => {
     <div className={styles.card}>
       <h3 className={styles.topc}>{room.topic}</h3>
       <div className={styles.speakers}>
-        <div className={styles.avatar}>
+        <div className={styles.avatars}>
           {room.speakers.map((speaker) => (
             <img src={speaker.avatar} alt="Speaker-avatar" />
           ))}
@@ -22,7 +22,7 @@ const RoomCard = ({ room }) => {
       </div>
       <div className={styles.peopleCount}>
         <span>{room.totalPeople}</span>
-        <img src="/images/user-icon.png" alt="" />
+        <img src="/images/user-icon.png" alt="user-icon" />
       </div>
     </div>
   );
