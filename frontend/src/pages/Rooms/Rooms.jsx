@@ -1,4 +1,5 @@
 import React from 'react';
+import RoomCard from '../../components/RoomCard/RoomCard';
 import styles from './Rooms.module.css';
 
 const rooms = [
@@ -53,6 +54,23 @@ const rooms = [
     ],
     totalPeople: 44,
   },
+  {
+    id: 4,
+    topic: 'Learning React?',
+    speakers: [
+      {
+        id: 1,
+        name: 'John Doe 2',
+        avatar: '/images/monkey-avatar.png',
+      },
+      {
+        id: 2,
+        name: 'Jane Doe 2',
+        avatar: '/images/monkey-avatar.png',
+      },
+    ],
+    totalPeople: 44,
+  },
 ];
 
 const Rooms = () => {
@@ -74,7 +92,11 @@ const Rooms = () => {
             </button>
           </div>
         </div>
-        <div className={styles.roomList}></div>
+        <div className={styles.roomList}>
+          {rooms.map((room) => (
+            <RoomCard key={room.id} room={room} />
+          ))}
+        </div>
       </div>
     </>
   );
