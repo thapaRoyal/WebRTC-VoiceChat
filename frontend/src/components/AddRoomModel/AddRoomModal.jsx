@@ -9,6 +9,21 @@ const AddRoomModel = () => {
         <div className={styles.modalHeader}>
           <h3>Enter the topic to be discussed</h3>
           <TextInput fullwidth="true" />
+          <h2>Room types</h2>
+          <div className={styles.roomTypes}>
+            <div className={styles.typeBox}>
+              <img src="/images/globe.png" alt="globe" />
+              <span>Open</span>
+            </div>
+            <div className={styles.typeBox}>
+              <img src="/images/social.png" alt="social" />
+              <span>Social</span>
+            </div>
+            <div className={styles.typeBox}>
+              <img src="/images/lock.png" alt="lock" />
+              <span>Private</span>
+            </div>
+          </div>
         </div>
         <div className={styles.modalFooter}></div>
       </div>
