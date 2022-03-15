@@ -16,6 +16,7 @@
   width: 50%;
   max-width: 500px;
   background: #1d1d1d;
+  border-radius: 20px;
 }
 
 .modalHeader {
@@ -37,4 +38,45 @@
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.heading {
+  margin-bottom: 5px;
+}
+
+.subHeading {
+  font-size: 18px;
+  margin: 10px 0;
+  font-weight: bold;
+}
+.modalFooter {
+  padding: 30px;
+  text-align: center;
+}
+
+.modalFooter h2 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.footerButton {
+  background: #20bd5f;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 10px;
+  width: 200px;
+  border-radius: 20px;
+  margin: 0 auto;
+  transition: all 0.3s ease-in-out;
+}
+
+.footerButton:hover {
+  background: #13763b;
+}
+
+.footerButton span {
+  margin-left: 5px;
+  font-weight: bold;
 }
