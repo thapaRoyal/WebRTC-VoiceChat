@@ -8,7 +8,7 @@ const AddRoomModel = () => {
       <div className={styles.modalBody}>
         <div className={styles.modalHeader}>
           <h3>Enter the topic to be discussed</h3>
-          <TextInput />
+          <TextInput fullwidth="true" />
         </div>
         <div className={styles.modalFooter}></div>
       </div>
