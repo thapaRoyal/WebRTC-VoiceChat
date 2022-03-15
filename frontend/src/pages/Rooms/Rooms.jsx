@@ -1,4 +1,5 @@
 import React from 'react';
+import AddRoomModel from '../../components/AddRoomModel/AddRoomModel';
 import RoomCard from '../../components/RoomCard/RoomCard';
 import styles from './Rooms.module.css';
 
@@ -98,6 +99,7 @@ const Rooms = () => {
           ))}
         </div>
       </div>
+      <AddRoomModel />
     </>
   );
 };
