@@ -13,6 +13,7 @@
 }
 
 .modalBody {
+  position: relative;
   width: 50%;
   max-width: 500px;
   background: #1d1d1d;
@@ -79,4 +80,11 @@
 .footerButton span {
   margin-left: 5px;
   font-weight: bold;
+}
+
+.closeButton {
+  position: absolute;
+  right: 3px;
+  top: 8px;
+  background: none;
 }

@@ -6,6 +6,9 @@ const AddRoomModel = () => {
   return (
     <div className={styles.modalMask}>
       <div className={styles.modalBody}>
+        <button className={styles.closeButton}>
+          <img src="/images/close.png" alt="close" />
+        </button>
         <div className={styles.modalHeader}>
           <h3 className={styles.heading}>Enter the topic to be discussed</h3>
           <TextInput fullwidth="true" />
