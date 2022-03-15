@@ -2,11 +2,11 @@ import React from 'react';
 import styles from './AddRoomModal.module.css';
 import TextInput from '../shared/TextInput/TextInput';
 
-const AddRoomModel = () => {
+const AddRoomModel = ({ onClose }) => {
   return (
     <div className={styles.modalMask}>
       <div className={styles.modalBody}>
-        <button className={styles.closeButton}>
+        <button onClick={onClose} className={styles.closeButton}>
           <img src="/images/close.png" alt="close" />
         </button>
         <div className={styles.modalHeader}>
