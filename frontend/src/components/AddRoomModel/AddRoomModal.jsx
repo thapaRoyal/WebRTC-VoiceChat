@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styles from './AddRoomModal.module.css';
 import TextInput from '../shared/TextInput/TextInput';
 
 const AddRoomModel = ({ onClose }) => {
-  const [roomType, setRoomType] = useState('open')
+  const [roomType, setRoomType] = useState('open');
   return (
     <div className={styles.modalMask}>
       <div className={styles.modalBody}>
@@ -15,15 +15,30 @@ const AddRoomModel = ({ onClose }) => {
           <TextInput fullwidth="true" />
           <h2 className={styles.subHeading}>Room types</h2>
           <div className={styles.roomTypes}>
-            <div className={`${styles.typeBox} ${roomType === 'open' ? styles.active : ''}`}>
+            <div
+              onClick={() => setRoomType('open')}
+              className={`${styles.typeBox} ${
+                roomType === 'open' ? styles.active : ''
+              }`}
+            >
               <img src="/images/globe.png" alt="globe" />
               <span>Open</span>
             </div>
-            <div className={styles.typeBox}>
+            <div
+              onClick={() => setRoomType('social')}
+              className={`${styles.typeBox} ${
+                roomType === 'social' ? styles.active : ''
+              }`}
+            >
               <img src="/images/social.png" alt="social" />
               <span>Social</span>
             </div>
-            <div className={styles.typeBox}>
+            <div
+              onClick={() => setRoomType('private')}
+              className={`${styles.typeBox} ${
+                roomType === 'private' ? styles.active : ''
+              }`}
+            >
               <img src="/images/lock.png" alt="lock" />
               <span>Private</span>
             </div>
