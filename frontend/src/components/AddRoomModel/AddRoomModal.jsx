@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './AddRoomModal.module.css';
 import TextInput from '../shared/TextInput/TextInput';
 
 const AddRoomModel = ({ onClose }) => {
+  const [roomType, setRoomType] = useState('open')
   return (
     <div className={styles.modalMask}>
       <div className={styles.modalBody}>
@@ -14,7 +15,7 @@ const AddRoomModel = ({ onClose }) => {
           <TextInput fullwidth="true" />
           <h2 className={styles.subHeading}>Room types</h2>
           <div className={styles.roomTypes}>
-            <div className={styles.typeBox}>
+            <div className={`${styles.typeBox} ${roomType === 'open' ? styles.active : ''}`}>
               <img src="/images/globe.png" alt="globe" />
               <span>Open</span>
             </div>
