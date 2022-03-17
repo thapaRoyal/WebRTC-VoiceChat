@@ -4,15 +4,26 @@ import TextInput from '../shared/TextInput/TextInput';
 
 const AddRoomModel = ({ onClose }) => {
   const [roomType, setRoomType] = useState('open');
+  const [topic, setTopic] = useState('');
+
+  function createRoom() {
+    // server call
+  }
+
   return (
     <div className={styles.modalMask}>
       <div className={styles.modalBody}>
         <button onClick={onClose} className={styles.closeButton}>
           <img src="/images/close.png" alt="close" />
         </button>
+
         <div className={styles.modalHeader}>
           <h3 className={styles.heading}>Enter the topic to be discussed</h3>
-          <TextInput fullwidth="true" />
+          <TextInput
+            fullwidth="true"
+            value={topic}
+            onChange={(e) => setTopic(e.target.value)}
+          />
           <h2 className={styles.subHeading}>Room types</h2>
           <div className={styles.roomTypes}>
             <div
@@ -44,9 +55,10 @@ const AddRoomModel = ({ onClose }) => {
             </div>
           </div>
         </div>
+
         <div className={styles.modalFooter}>
           <h2>Start a room, open to everyone</h2>
-          <button className={styles.footerButton}>
+          <button onClick={createRoom} className={styles.footerButton}>
             <img src="/images/celebration.png" alt="Celebration" />
             <span>Let's go</span>
           </button>
