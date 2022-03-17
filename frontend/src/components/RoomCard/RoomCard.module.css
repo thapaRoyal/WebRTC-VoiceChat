@@ -57,3 +57,11 @@
   height: 20px;
   width: 20px;
 }
+
+.singleSpeaker .avatars img {
+  position: initial;
+}
+
+.singleSpeaker .names {
+  margin-left: 20px;
+}

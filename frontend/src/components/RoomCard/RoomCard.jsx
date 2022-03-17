@@ -5,7 +5,11 @@ const RoomCard = ({ room }) => {
   return (
     <div className={styles.card}>
       <h3 className={styles.topc}>{room.topic}</h3>
-      <div className={styles.speakers}>
+      <div
+        className={`${styles.speakers} ${
+          room.speakers.length === 1 ? styles.singleSpeaker : ''
+        }`}
+      >
         <div className={styles.avatars}>
           {room.speakers.map((speaker) => (
             <img key={speaker.id} src={speaker.avatar} alt="Speaker-avatar" />
