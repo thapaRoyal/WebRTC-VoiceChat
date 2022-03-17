@@ -10,6 +10,7 @@ import Loader from './components/shared/Loader/Loader';
 
 import { useSelector } from 'react-redux';
 import { useLoadingWithRefresh } from './hooks/useLoadingWithRefresh';
+import Room from './pages/Room/Room';
 
 // App Component
 function App() {
@@ -33,6 +34,9 @@ function App() {
         </SemiProtectedRoute>
         <ProtectedRoute path="/rooms">
           <Rooms />
+        </ProtectedRoute>
+        <ProtectedRoute path="/room/:id">
+          <Room />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
