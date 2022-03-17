@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
 import styles from './AddRoomModal.module.css';
 import TextInput from '../shared/TextInput/TextInput';
+import { createRoom as create } from '../../http';
 
 const AddRoomModel = ({ onClose }) => {
   const [roomType, setRoomType] = useState('open');
   const [topic, setTopic] = useState('');
 
-  function createRoom() {
+  async function createRoom() {
     // server call
+    try {
+      if (!topic) return;
+      const { data } = await create({
+        topic,
+        roomType,
+      });
+      console.log(data);
+    } catch (err) {
+      console.log(err.message);
+    }
   }
 
   return (
