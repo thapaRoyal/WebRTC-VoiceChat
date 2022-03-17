@@ -42,15 +42,21 @@ const Navigation = () => {
         <img src="/images/logo.png" alt="coders house logo" />
         <span style={logoText}>Codershouse</span>
       </Link>
-      <div className={styles.navRight}>
-        <h2>{user.name}</h2>
-        <Link to="/">
-          <img className={styles.avatar} src={user.avatar} alt="Avatar" />
-        </Link>
-        <button className={styles.logoutButton} onClick={logoutUser}>
-          <img src="/images/logout.png" alt="" />
-        </button>
-      </div>
+      {isAuth && (
+        <div className={styles.navRight}>
+          <h2>{user?.name}</h2>
+          <Link to="/">
+            <img
+              className={styles.avatar}
+              src={user.avatar ? user.avatar : '/images/monkey-avatar.png'}
+              alt="Avatar"
+            />
+          </Link>
+          <button className={styles.logoutButton} onClick={logoutUser}>
+            <img src="/images/logout.png" alt="" />
+          </button>
+        </div>
+      )}
     </nav>
   );
 };
