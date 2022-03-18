@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useStateWithCallback } from './useStateWithCallback';
 
 const users = [
@@ -22,6 +22,22 @@ export const useWebRTC = (roomId, user) => {
   const provideRef = (instance, userId) => {
     audioElements.current[userId] = instance;
   };
+
+  const addNewClients = useCallback(
+    (newClient, cb) => {},
+    [clients, setClients]
+  );
+
+  // Capture media
+
+  useEffect(() => {
+    const startCapture = async () => {
+      localMediaStream.current = await navigator.mediaDevices.getUserMedia({
+        audio: true,
+      });
+    };
+    startCapture().then(() => {});
+  }, []);
 
   return { clients, provideRef };
 };
