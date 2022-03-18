@@ -12,8 +12,7 @@ const users = [
   },
 ];
 
-e
-xport const useWebRTC = (roomId, user) => {
+export const useWebRTC = (roomId, user) => {
   const [clients, setClients] = useStateWithCallback(users);
 
   const audioElements = useRef({});
