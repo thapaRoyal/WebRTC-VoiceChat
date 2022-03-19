@@ -91,6 +91,11 @@ export const useWebRTC = (roomId, user) => {
       localMediaStream.current.getTracks().forEach((track) => {
         connections.current[peerId].addTrack(track, localMediaStream.current);
       });
+
+      // Create offer
+      if (createOffer) {
+        const offer = await connections.current[peerId].createOffer();
+      }
     };
     socket.current.on(ACTIONS.ADD_PEER, handleNewPeer);
   }, []);
