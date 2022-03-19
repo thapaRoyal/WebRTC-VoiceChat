@@ -149,6 +149,23 @@ export const useWebRTC = (roomId, user) => {
     };
   }, []);
 
+  // handle remove  peer
+  useEffect(() => {
+    const handleRemovePeer = async ({ peerId, userId }) => {
+      if (connections.current[peerId]) {
+        connections.current[peerId].close();
+      }
+
+      delete connections.current[peerId];
+      delete audioElements.current[peerId];
+      setClients((list) => list.filter((client) => client.id !== userId));
+    };
+    socket.current.on(ACTIONS.REMOVE_PEER, handleRemovePeer);
+    return () => {
+      socket.current.off(ACTIONS.REMOVE_PEER);
+    };
+  }, []);
+
   const provideRef = (instance, userId) => {
     audioElements.current[userId] = instance;
   };
