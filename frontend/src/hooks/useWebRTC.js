@@ -59,6 +59,13 @@ export const useWebRTC = (roomId, user) => {
       connections.current[peerId] = new RTCPeerConnection({
         iceServers: freeice(),
       });
+      // handle new ice candidate
+      connections.current[peerId].onicecandidate = (event) => {
+        socket.current.emit(ACTIONS.RELAY_ICE, {
+          peerId,
+          icecandidate: event.candidate,
+        });
+      };
     };
     socket.current.on(ACTIONS.ADD_PEER, handleNewPeer);
   }, []);
