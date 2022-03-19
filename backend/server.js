@@ -7,6 +7,13 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const server = require('http').createServer(app);
 
+const io = requrie('socket.io')(server, {
+  cors: {
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST'],
+  },
+});
+
 app.use(cookieParser());
 
 const corsOption = {
