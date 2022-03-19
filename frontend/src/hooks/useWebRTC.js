@@ -178,5 +178,26 @@ export const useWebRTC = (roomId, user) => {
     audioElements.current[userId] = instance;
   };
 
-  return { clients, provideRef };
+  // handle mute
+  const handleMute = (isMute, userId) => {
+    let settled = false;
+
+    let interval = setInterval(() => {
+      if (localMediaStream.current) {
+        localMediaStream.current.getTracks()[0].enabled = !isMute;
+        if (isMute) {
+          socket.current.emit(ACTIONS.MUTE, { roomId, userId });
+        } else {
+          socket.current.emit(ACTIONS.UNMUTE, { roomId, userId });
+        }
+        settled = true;
+      }
+
+      if (settled) {
+        clearInterval(interval);
+      }
+    }, 2000);
+  };
+
+  return { clients, provideRef, handleMute };
 };

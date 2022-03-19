@@ -8,9 +8,14 @@ import { getRoom } from '../../http';
 const Room = () => {
   const { id: roomId } = useParams();
   const user = useSelector((state) => state.auth.user);
-  const { clients, provideRef } = useWebRTC(roomId, user);
+  const { clients, provideRef, handleMute } = useWebRTC(roomId, user);
   const history = useHistory();
   const [room, setRoom] = useState(null);
+  const [isMute, setMute] = useState(true);
+
+  useEffect(() => {
+    handleMute(isMute, user.id);
+  }, [isMute]);
 
   const handleManualLeave = () => {
     history.push('/rooms');
