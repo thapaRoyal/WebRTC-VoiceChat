@@ -31,8 +31,7 @@ const Room = () => {
   }, [roomId]);
 
   const handleMuteClick = (clientId) => {
-    //
-    console.log('click', clientId);
+    if (clientId !== user.id) return;
     setMute((isMute) => !isMute);
   };
 
