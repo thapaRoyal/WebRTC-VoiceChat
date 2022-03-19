@@ -19,6 +19,7 @@ const Room = () => {
   useEffect(() => {
     const fetchRoom = async () => {
       const { data } = await getRoom(roomId);
+      console.log(data);
       setRoom((prev) => data);
     };
     fetchRoom();
@@ -34,7 +35,7 @@ const Room = () => {
       </div>
       <div className={styles.clientsWrap}>
         <div className={styles.header}>
-          <h2 className={styles.topic}>node js is awesome</h2>
+          <h2 className={styles.topic}>{room?.topic}</h2>
           <div className={styles.actions}>
             <button className={styles.actionBtn}>
               <img src="/images/palm.png" alt="palm icon" />
@@ -48,8 +49,8 @@ const Room = () => {
         <div className={styles.clientsList}>
           {clients.map((client) => {
             return (
-              <div className={styles.client}>
-                <div className={styles.userHead} key={client.id}>
+              <div className={styles.client} key={client.id}>
+                <div className={styles.userHead}>
                   <audio
                     ref={(instance) => provideRef(instance, client.id)}
                     autoPlay
