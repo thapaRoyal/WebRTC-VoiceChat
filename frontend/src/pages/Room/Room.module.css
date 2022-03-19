@@ -3,10 +3,32 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
+  background-size: cover;
 }
 
 .userAvatar {
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  object-fit: cover;
+}
+
+.goBack {
+  display: flex;
+  align-items: center;
+  background: none;
+  outline: none;
+  margin-top: 2rem;
+}
+
+.goBack img {
+  width: 20px;
+  height: 20px;
+}
+
+.goBack span {
+  font-weight: bold;
+  color: #fff;
+  font-size: 16px;
+  margin-left: 1rem;
 }
