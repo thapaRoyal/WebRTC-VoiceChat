@@ -4,6 +4,8 @@ const ACTIONS = {
   ADD_PEER: 'add-Peer',
   RELAY_ICE: 'relay-Ice',
   RELAY_SDP: 'relay-SDP',
+  ICE_CANDIDATE: 'ice-candidate',
+  SESSION_DESCRIPTION: 'session-description',
 };
 
 module.exports = ACTIONS;

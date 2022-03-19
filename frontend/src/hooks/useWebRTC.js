@@ -111,13 +111,13 @@ export const useWebRTC = (roomId, user) => {
 
   // handle ice candidate
   useEffect(() => {
-    socket.current.on(ACTIONS.RELAY_ICE, ({ peerId, icecandidate }) => {
+    socket.current.on(ACTIONS.ICE_CANDIDATE, ({ peerId, icecandidate }) => {
       if (icecandidate) {
         connections.current[peerId].addIceCandidate(icecandidate);
       }
     });
     return () => {
-      socket.current.off(ACTIONS.RELAY_ICE);
+      socket.current.off(ACTIONS.ICE_CANDIDATE);
     };
   }, []);
 
@@ -143,9 +143,9 @@ export const useWebRTC = (roomId, user) => {
         });
       }
     };
-    socket.current.on(ACTIONS.RELAY_SDP, handleRemoteSdp);
+    socket.current.on(ACTIONS.SESSION_DESCRIPTION, handleRemoteSdp);
     return () => {
-      socket.current.off(ACTIONS.RELAY_SDP);
+      socket.current.off(ACTIONS.SESSION_DESCRIPTION);
     };
   }, []);
 

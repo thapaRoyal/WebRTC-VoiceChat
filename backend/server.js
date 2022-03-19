@@ -58,14 +58,14 @@ io.on('connection', (socket) => {
   });
   // handle relay ice
   socket.on(ACTIONS.RELAY_ICE, ({ peerId, icecandidate }) => {
-    io.to(peerId).emit(ACTIONS.RELAY_ICE, {
+    io.to(peerId).emit(ACTIONS.ICE_CANDIDATE, {
       peerId: socket.id,
       icecandidate,
     });
   });
   // handle relay sdp (sessioni description)
   socket.on(ACTIONS.RELAY_SDP, ({ peerId, sessionDescription }) => {
-    io.to(peerId).emit(ACTIONS.RELAY_SDP, {
+    io.to(peerId).emit(ACTIONS.SESSION_DESCRIPTION, {
       peerId: socket.id,
       sessionDescription,
     });
