@@ -84,7 +84,7 @@ io.on('connection', (socket) => {
         });
         socket.emit(ACTIONS.REMOVE_PEER, {
           peerId: clientId,
-          userId: socketUserMapping[clientId].id,
+          userId: socketUserMapping[clientId]?.id,
         });
       });
       socket.leave(roomId);
