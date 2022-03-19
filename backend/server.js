@@ -63,6 +63,13 @@ io.on('connection', (socket) => {
       icecandidate,
     });
   });
+  // handle relay sdp (sessioni description)
+  socket.on(ACTIONS.RELAY_SDP, ({ peerId, sessionDescription }) => {
+    io.to(peerId).emit(ACTIONS.RELAY_SDP, {
+      peerId: socket.id,
+      sessionDescription,
+    });
+  });
 });
 
 server.listen(PORT, () => console.log(`listening on port ${PORT}`));
