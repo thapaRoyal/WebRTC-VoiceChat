@@ -46,6 +46,12 @@ export const useWebRTC = (roomId, user) => {
         socket.current.emit(ACTIONS.JOIN, { roomId, user });
       });
     });
+    return () => {
+      // leaving the room
+      localMediaStream.current.getTracks().forEach((track) => track.stop());
+
+      socket.current.emit(ACTIONS.LEAVE, { roomId });
+    };
   }, []);
 
   useEffect(() => {

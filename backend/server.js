@@ -63,13 +63,34 @@ io.on('connection', (socket) => {
       icecandidate,
     });
   });
-  // handle relay sdp (sessioni description)
+  // handle relay sdp (session description)
   socket.on(ACTIONS.RELAY_SDP, ({ peerId, sessionDescription }) => {
     io.to(peerId).emit(ACTIONS.SESSION_DESCRIPTION, {
       peerId: socket.id,
       sessionDescription,
     });
   });
+
+  //Leaving the room
+  const leaveRoom = ({ roomId }) => {
+    const { rooms } = socket;
+    Array.from(rooms).forEach((roomId) => {
+      const clients = Array.from(io.sockets.adaptar.rooms.get(roomId) || []);
+      clients.forEach((clientId) => {
+        io.to(clientId).emit(ACTIONS.REMOVE_PEER, {
+          peerId: socket.id,
+          userId: socketUserMapping[socket.id].id,
+        });
+        socket.emit(ACTIONS.REMOVE_PEER, {
+          peerId: clientId,
+          userId: socketUserMapping[clientId].id,
+        });
+      });
+      socket.leave(roomId);
+    });
+    delete socketUserMapping[socket.id];
+  };
+  socket.on(ACTIONS.LEAVE, leaveRoom);
 });
 
 server.listen(PORT, () => console.log(`listening on port ${PORT}`));
