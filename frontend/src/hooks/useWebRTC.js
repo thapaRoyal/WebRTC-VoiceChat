@@ -121,6 +121,22 @@ export const useWebRTC = (roomId, user) => {
     };
   }, []);
 
+  // handle sdp
+  useEffect(() => {
+    const handleRemoteSdp = async ({
+      peerId,
+      sessionDescription: remoteSessionDescription,
+    }) => {
+      connections.current[peerId].setRemoteDescription(
+        new RTCSessionDescription(remoteSessionDescription)
+      );
+    };
+    socket.current.on(ACTIONS.RELAY_SDP, handleRemoteSdp);
+    return () => {
+      socket.current.off(ACTIONS.RELAY_SDP);
+    };
+  }, []);
+
   const provideRef = (instance, userId) => {
     audioElements.current[userId] = instance;
   };
