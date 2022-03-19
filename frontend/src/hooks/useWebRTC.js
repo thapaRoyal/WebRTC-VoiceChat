@@ -109,6 +109,18 @@ export const useWebRTC = (roomId, user) => {
     };
   }, []);
 
+  // handle ice candidate
+  useEffect(() => {
+    socket.current.on(ACTIONS.RELAY_ICE, ({ peerId, icecandidate }) => {
+      if (icecandidate) {
+        connections.current[peerId].addIceCandidate(icecandidate);
+      }
+    });
+    return () => {
+      socket.current.off(ACTIONS.RELAY_ICE);
+    };
+  }, []);
+
   const provideRef = (instance, userId) => {
     audioElements.current[userId] = instance;
   };
