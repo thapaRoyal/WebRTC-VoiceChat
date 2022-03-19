@@ -76,7 +76,7 @@ io.on('connection', (socket) => {
   const leaveRoom = ({ roomId }) => {
     const { rooms } = socket;
     Array.from(rooms).forEach((roomId) => {
-      const clients = Array.from(io.sockets.adaptar.rooms.get(roomId) || []);
+      const clients = Array.from(io.sockets.adapter.rooms.get(roomId) || []);
       clients.forEach((clientId) => {
         io.to(clientId).emit(ACTIONS.REMOVE_PEER, {
           peerId: socket.id,
