@@ -33,6 +33,8 @@ export const useWebRTC = (roomId, user) => {
           localElement.volume = 0;
           localElement.srcObject = localMediaStream.current;
         }
+
+        // socket emit JOIN socket io
       });
     });
   }, []);
