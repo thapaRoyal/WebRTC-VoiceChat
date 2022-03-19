@@ -80,7 +80,7 @@ io.on('connection', (socket) => {
       clients.forEach((clientId) => {
         io.to(clientId).emit(ACTIONS.REMOVE_PEER, {
           peerId: socket.id,
-          userId: socketUserMapping[socket.id].id,
+          userId: socketUserMapping[socket.id]?.id,
         });
         socket.emit(ACTIONS.REMOVE_PEER, {
           peerId: clientId,
