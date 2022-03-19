@@ -48,12 +48,13 @@ io.on('connection', (socket) => {
         createOffer: false,
         user,
       });
+      socket.emit(ACTIONS.ADD_PEER, {
+        peerId: clientId,
+        createOffer: true,
+        user: socketUserMapping[clientId],
+      });
     });
-    socket.emit(ACTIONS.ADD_PEER, {
-      peerId: clientId,
-      createOffer: true,
-      user: socketUserMapping[clientId],
-    });
+
     socket.join(roomId);
   });
   // handle relay ice
