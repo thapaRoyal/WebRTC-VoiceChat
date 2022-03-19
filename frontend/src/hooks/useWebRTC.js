@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useStateWithCallback } from './useStateWithCallback';
 import { socketInit } from '../socket';
 import { ACTIONS } from '../actions';
+import freeice from 'freeice';
 
 export const useWebRTC = (roomId, user) => {
   const [clients, setClients] = useStateWithCallback([]);
@@ -56,11 +57,7 @@ export const useWebRTC = (roomId, user) => {
         );
       }
       connections.current[peerId] = new RTCPeerConnection({
-        iceServers: [
-          {
-            urls: 'stun:stun.l.google.com:19302',
-          },
-        ],
+        iceServers: freeice(),
       });
     };
     socket.current.on(ACTIONS.ADD_PEER, handleNewPeer);
