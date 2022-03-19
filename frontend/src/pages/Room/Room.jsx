@@ -30,6 +30,12 @@ const Room = () => {
     fetchRoom();
   }, [roomId]);
 
+  const handleMuteClick = (clientId) => {
+    //
+    console.log('click', clientId);
+    setMute((isMute) => !isMute);
+  };
+
   return (
     <div>
       <div className="container">
@@ -65,7 +71,10 @@ const Room = () => {
                     src={client.avatar}
                     alt="avatar"
                   />
-                  <button className={styles.micBtn}>
+                  <button
+                    onClick={() => handleMuteClick(client.id)}
+                    className={styles.micBtn}
+                  >
                     {client.muted ? (
                       <img src="/images/mic-mute.png" alt="mic" />
                     ) : (
