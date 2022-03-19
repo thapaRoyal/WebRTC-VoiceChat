@@ -3,6 +3,7 @@ import { useWebRTC } from '../../hooks/useWebRTC';
 import { useHistory, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from './Room.module.css';
+import { getRoom } from '../../http';
 
 const Room = () => {
   const { id: roomId } = useParams();
