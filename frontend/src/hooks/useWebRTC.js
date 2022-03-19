@@ -19,10 +19,6 @@ export const useWebRTC = (roomId, user) => {
   const connections = useRef({});
   const localMediaStream = useRef(null);
 
-  const provideRef = (instance, userId) => {
-    audioElements.current[userId] = instance;
-  };
-
   const addNewClients = useCallback(
     (newClient, cb) => {
       const lookingFor = clients.find((client) => client.id === newClient.id);
@@ -51,6 +47,10 @@ export const useWebRTC = (roomId, user) => {
       });
     });
   }, []);
+
+  const provideRef = (instance, userId) => {
+    audioElements.current[userId] = instance;
+  };
 
   return { clients, provideRef };
 };
