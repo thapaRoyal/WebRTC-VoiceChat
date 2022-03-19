@@ -26,11 +26,15 @@ app.use('/storage', express.static('storage'));
 const PORT = process.env.PORT || 5500;
 DbConnect();
 app.use(express.json({ limit: '8mb' }));
+app.use(router);
 
 app.get('/', (req, res) => {
   res.send('hello from express');
 });
 
-app.use(router);
+// Sockets
+io.on('connection', (socket) => {
+  console.log('new connection', socket.io);
+});
 
 server.listen(PORT, () => console.log(`listening on port ${PORT}`));
