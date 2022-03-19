@@ -24,7 +24,12 @@ export const useWebRTC = (roomId, user) => {
   };
 
   const addNewClients = useCallback(
-    (newClient, cb) => {},
+    (newClient, cb) => {
+      const lookingFor = clients.find((client) => client.id === newClient.id);
+      if (lookingFor === undefined) {
+        setClients((existingClients) => [...existingClients, newClient], cb);
+      }
+    },
     [clients, setClients]
   );
 
@@ -36,7 +41,15 @@ export const useWebRTC = (roomId, user) => {
         audio: true,
       });
     };
-    startCapture().then(() => {});
+    startCapture().then(() => {
+      addNewClients(user, () => {
+        const localElement = audioElements.current[user.id];
+        if (localElement) {
+          localElement.volume = 0;
+          localElement.srcObject = localMediaStream.current;
+        }
+      });
+    });
   }, []);
 
   return { clients, provideRef };
