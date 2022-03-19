@@ -5,6 +5,7 @@ const DbConnect = require('./database');
 const router = require('./routes');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const server = require('http').createServer(app);
 
 app.use(cookieParser());
 
@@ -25,4 +26,4 @@ app.get('/', (req, res) => {
 
 app.use(router);
 
-app.listen(PORT, () => console.log(`listening on port ${PORT}`));
+server.listen(PORT, () => console.log(`listening on port ${PORT}`));
