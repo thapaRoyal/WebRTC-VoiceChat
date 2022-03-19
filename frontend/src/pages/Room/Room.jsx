@@ -62,9 +62,9 @@ const Room = () => {
                   />
                   <button className={styles.micBtn}>
                     {client.muted ? (
-                      <img src="/images/mic.png" alt="mic" />
+                      <img src="/images/mic-mute.png" alt="mic" />
                     ) : (
-                      <img src="/images/mic-mute.png" alt="mic-mute-png" />
+                      <img src="/images/mic.png" alt="mic-mute-png" />
                     )}
                   </button>
                 </div>

@@ -35,7 +35,7 @@ export const useWebRTC = (roomId, user) => {
       });
     };
     startCapture().then(() => {
-      addNewClient(user, () => {
+      addNewClient({ ...user, muted: true }, () => {
         const localElement = audioElements.current[user.id];
         if (localElement) {
           localElement.volume = 0;
@@ -75,7 +75,7 @@ export const useWebRTC = (roomId, user) => {
 
       // Handle on track on this connection
       connections.current[peerId].ontrack = ({ streams: [remoteStream] }) => {
-        addNewClient(remoteUser, () => {
+        addNewClient({ ...remoteUser, muted: true }, () => {
           if (audioElements.current[remoteUser.id]) {
             audioElements.current[remoteUser.id].srcObject = remoteStream;
           } else {
