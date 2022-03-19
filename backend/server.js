@@ -7,7 +7,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const server = require('http').createServer(app);
 
-const io = requrie('socket.io')(server, {
+const io = require('socket.io')(server, {
   cors: {
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST'],
@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
 
 // Sockets
 io.on('connection', (socket) => {
-  console.log('new connection', socket.io);
+  console.log('new connection', socket.id);
 });
 
 server.listen(PORT, () => console.log(`listening on port ${PORT}`));
