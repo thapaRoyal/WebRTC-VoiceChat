@@ -47,6 +47,25 @@ export const useWebRTC = (roomId, user) => {
     });
   }, []);
 
+  useEffect(() => {
+    const handleNewPeer = async ({ peerId, createOffer, user: remoteUser }) => {
+      // if already connected then give warning
+      if (peerId in connections.current) {
+        return console.warn(
+          `You are already connected with ${peerId} (${user.name})`
+        );
+      }
+      connections.current[peerId] = new RTCPeerConnection({
+        iceServers: [
+          {
+            urls: 'stun:stun.l.google.com:19302',
+          },
+        ],
+      });
+    };
+    socket.current.on(ACTIONS.ADD_PEER, handleNewPeer);
+  }, []);
+
   const provideRef = (instance, userId) => {
     audioElements.current[userId] = instance;
   };

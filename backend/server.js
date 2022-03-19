@@ -43,9 +43,17 @@ io.on('connection', (socket) => {
     //new map
     const clients = Array.from(io.sockets.adapter.rooms.get(roomId) || []);
     clients.forEach((clientId) => {
-      io.to(clientId).emit(ACTIONS.ADD_PEER, {});
+      io.to(clientId).emit(ACTIONS.ADD_PEER, {
+        peerId: socket.id,
+        createOffer: false,
+        user,
+      });
     });
-    socket.emit(ACTIONS.ADD_PEER, {});
+    socket.emit(ACTIONS.ADD_PEER, {
+      peerId: clientId,
+      createOffer: true,
+      user: socketUserMapping[clientId],
+    });
     socket.join(roomId);
   });
 });
