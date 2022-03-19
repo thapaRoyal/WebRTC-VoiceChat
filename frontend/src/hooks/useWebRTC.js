@@ -102,6 +102,8 @@ export const useWebRTC = (roomId, user) => {
       if (createOffer) {
         const offer = await connections.current[peerId].createOffer();
 
+        await connections.current[peerId].setLocalDescription(offer);
+
         // send offer to another client
         socket.current.emit(ACTIONS.RELAY_SDP, {
           peerId,
