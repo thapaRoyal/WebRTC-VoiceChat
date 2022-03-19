@@ -56,6 +56,13 @@ io.on('connection', (socket) => {
     });
     socket.join(roomId);
   });
+  // handle relay ice
+  socket.on(ACTIONS.RELAY_ICE, ({ peerId, icecandidate }) => {
+    io.to(peerId).emit(ACTIONS.RELAY_ICE, {
+      peerId: socket.id,
+      icecandidate,
+    });
+  });
 });
 
 server.listen(PORT, () => console.log(`listening on port ${PORT}`));
