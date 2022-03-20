@@ -18,7 +18,7 @@ app.use(cookieParser());
 
 const corsOption = {
   credentials: true,
-  origin: ['http://localhost:3000'],
+  origin: ['http://localhost:3000', 'http://192.168.1.14:3000'],
 };
 app.use(cors(corsOption));
 app.use('/storage', express.static('storage'));
